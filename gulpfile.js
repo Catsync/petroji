@@ -27,7 +27,13 @@ gulp.task('app', function() {
 			.pipe(concat(pkg.name+'.min.js'))
 			// .pipe(uglify())  // TODO: uncomment this later, easier to debug this way
 			.pipe(gulp.dest("public/js/"));
-})
+});
+
+gulp.task('css', function() {
+	return gulp.src(['src/**/*.css'])
+				.pipe(concat('style.css'))
+				.pipe(gulp.dest('public/css/'));
+});
 
 gulp.task('watch', function() {
 	gulp.watch(['src/js/**/*.js'], ['app']);
@@ -35,4 +41,4 @@ gulp.task('watch', function() {
 });
 
 
-gulp.task('default', ['static','libs','app']);
+gulp.task('default', ['static','css','libs','app']);
