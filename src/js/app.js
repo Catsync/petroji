@@ -1,6 +1,8 @@
 angular.module('petroji',[
+	'firebase',
 	'ui.router',
-  'petroji.auth'
+  'petroji.auth',
+
 ])
 .config(['$stateProvider', '$urlRouterProvider',function($stateProvider,$urlRouterProvider) {
 	"use strict";
