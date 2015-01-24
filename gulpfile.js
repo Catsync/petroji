@@ -8,7 +8,9 @@ var jshint	= require('gulp-jshint');
 
 gulp.task('static', function() {
 	return gulp.src([
-		'src/**/*.html'
+		'src/**/*.html',
+		'src/fonts/*',
+		'src/css/*'
 		], { "base": "src" })
 		.pipe(gulp.dest("public/"));
 });
