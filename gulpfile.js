@@ -4,12 +4,7 @@ var concat	= require('gulp-concat');
 var uglify	= require('gulp-uglify');
 var concat 	= require('gulp-concat');
 var jshint	= require('gulp-jshint');
-var bower = require('gulp-bower');
 
-gulp.task('bower', function() {
-	return bower()
-	.pipe(gulp.dest('src/lib/'))
-});
 
 gulp.task('static', function() {
 	return gulp.src([
