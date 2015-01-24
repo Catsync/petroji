@@ -14,7 +14,7 @@ gulp.task('static', function() {
 });
 
 gulp.task('libs', function() {
-	return gulp.src(['src/lib/**/*.js'])
+	return gulp.src(['src/lib/jquery/jquery.js','src/lib/**/*.js'])
 				.pipe(concat(pkg.name+'-libs.min.js'))
 				.pipe(uglify())
 				.pipe(gulp.dest("public/lib/"));
