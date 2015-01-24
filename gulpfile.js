@@ -38,6 +38,7 @@ gulp.task('css', function() {
 gulp.task('watch', function() {
 	gulp.watch(['src/js/**/*.js'], ['app']);
 	gulp.watch(['src/**/*.html'], ['static']);
+	gulp.watch(['src/**/*.css'], ['css']);
 });
 
 
