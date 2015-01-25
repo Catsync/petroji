@@ -1,6 +1,10 @@
 angular.module('petroji')
   .factory('lobbyService', ['$firebase', function($firebase) {
     var lobbyService = {};
+    var baseLobbyRef = new Firebase("https://petroji.firebaseio.com/lobby/");
+    //people who are logged are in the lobby
+
+    //lobbyService == isWaiting, hasJoined, availableVillage, hasLoggedOut
 
     /*
      * See list of people waiting for village. When enough players available fill it with people.

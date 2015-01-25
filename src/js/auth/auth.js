@@ -71,6 +71,7 @@ angular.module('petroji.auth', [
       var cb = function(error) {
         if (error === null) {
           console.log("Password reset email sent successfully");
+          $state.go('auth');
         } else {
           console.log("Error sending password reset email:", error);
         }
