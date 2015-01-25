@@ -11,13 +11,34 @@ angular.module('petroji.auth',[
 
 }])
 .controller("authController", [ "loginService"   ,function(loginService) {
+  console.log("START: authController");
+  this.newUserData = {};
+  this.authData = {};
+
   this.loginUser = function () {
     console.log("loginUser");
-  }
+    var authData = {
+      "email" : this.email,
+      "password" : this.password
+    };
+    console.log("authData:", authData)
+    loginService.authUser(authData);
+    console.log("END: loginUser ");
+
+  };
+
   this.createUser = function () {
     console.log("createUser");
-    //loginService.createUser(userData);
-  }
+    var userData = {
+      "email"    : this.newUserData.email,
+      "password" : this.newUserData.password,
+      "firstname" : this.newUserData.firstname,
+      "lastname" :  this.newUserData.lastname,
+      "username" : this.newUserData.username
+    };
+    //console.log(userData);
+    loginService.createUser(userData);
+  };
   console.log("END: authController");
 
   //this.user={"name": "foo"};
