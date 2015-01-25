@@ -1,6 +1,6 @@
 angular.module('petroji')
 .factory('villageService', ['$firebase', 'Village', function($firebase,Village) {
-	var ref = new Firebase("https://petroji.firebaseio.com/");
+	// var ref = new Firebase("https://petroji.firebaseio.com/");
 	// var sync = $firebase(ref);
 
 	// var villageDefault = $firebase(ref.child('village-default')).$asObject();
@@ -22,10 +22,12 @@ angular.module('petroji')
 		return village;
 	};
 
-	villageService.addUsertoVillage = function(userId) {
+	villageService.addPlayerToVillage = function(userId) {
 		console.log('addUserToVillage called: '+userId);
-		if(village === null) { return false; }
-
+		if(village === null || !userId) { return false; }
+		if(!village.players) { village.players = {}; }
+		village.players.userId = true;
+		village.$save();
 	};
 
 	return villageService;
