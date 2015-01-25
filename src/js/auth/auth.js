@@ -39,8 +39,17 @@ angular.module('petroji.auth',[
     //console.log(userData);
     loginService.createUser(userData);
   };
+
+  this.resetUser = function() {
+    console.log("resetUser");
+    var authData = {
+      "email" : this.email
+    };
+    loginService.resetUser(authData);
+  };
+
   console.log("END: authController");
 
   //this.user={"name": "foo"};
-  
+
 }]);
