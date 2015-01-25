@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "description": "petroji - GGJ2015 RVCC",
   "main": "",
-  "scripts": {},
+  "scripts": {
+    "start": "node server/server.js"
+  },
   "keywords": [
     "ggj2015",
     "RVCC"
@@ -20,7 +22,9 @@
     "gulp-jshint": "~1.9.0",
     "gulp-uglify": "~1.1.0",
     "jshint-stylish": "~1.0.0",
-    "main-bower-files": "^2.5.0"
+    "main-bower-files": "^2.5.0",
+    "express": "~4.11.1",
+    "serve-static": "~1.8.1"
   },
   "engines": {
     "node": "0.10.x"
