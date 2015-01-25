@@ -10,21 +10,25 @@ angular.module('petroji.auth',[
   });
 
 }])
-.controller("authController", [function() {
-  console.log("authController");
-  //this.user={"name": "foo"};
-}]);
-/*
+.controller("authController", [ "loginService"   ,function(loginService) {
+  this.loginUser = function () {
+    console.log("loginUser");
+  }
+  this.createUser = function () {
+    console.log("createUser");
+    //loginService.createUser(userData);
+  }
+  console.log("END: authController");
 
-var ref = new Firebase("https://<your-firebase>.firebaseio.com");
-ref.createUser({
-email    : "bobtony@firebase.com",
-password : "correcthorsebatterystaple"
-}, function(error) {
-if (error === null) {
-console.log("User created successfully");
-} else {
-console.log("Error creating user:", error);
+  //this.user={"name": "foo"};
+  /*
+  {
+  email    : "rick.rickanderson@gmail.com",
+  password : "PASSWORD",
+  firstname : "FIRSTNAME",
+  lastname : "LASTNAME",
+  username : "USERNAME"
 }
-});
-*/
+
+  */
+}]);
