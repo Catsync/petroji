@@ -6,7 +6,7 @@ angular.module('petroji')
   * See list of people waiting for village. When enough players available fill it with people.
   */
   lobbyService.lobby = function(authData) {
-    console.log("resetUser:Start:", authData);
+    console.log("lobby:Start:", authData);
     var ref = new Firebase("https://petroji.firebaseio.com");
     ref.lobby(authData,
       function(error) {
