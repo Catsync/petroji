@@ -60,7 +60,14 @@ angular.module('petroji.auth', [
       var authData = {
         "email": this.email
       };
-      loginService.resetUser(authData);
+      var cb = function(error) {
+        if (error === null) {
+          console.log("Password reset email sent successfully");
+        } else {
+          console.log("Error sending password reset email:", error);
+        }
+      };
+      loginService.resetUser(authData, cb);
     };
 
     console.log("END: authController");
