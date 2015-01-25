@@ -28,7 +28,7 @@ angular.module('petroji')
 	// TODO: This should eventually be in a service somewhere
 	function getUserData(userId) {
 		if(!userId) { return null; }
-		var userRef = new Firebase("https://petroji.firebaseio.com/users/");
+		var userRef = new Firebase("https://petroji.firebaseio.com/user-data/");
 		var userOb = $firebase(userRef.child(userId)).$asObject();
 		return userOb;
 	}
