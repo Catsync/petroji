@@ -7,8 +7,15 @@ angular.module('petroji.auth', [
       url: '/auth',
       templateUrl: '/partials/login.tpl.html',
       controller: 'authController as auth'
+    }).state('signup', {
+      url: '/signup',
+      templateUrl: '/partials/login-signup.tpl.html',
+      controller: 'authController as auth'
+    }).state('reset', {
+      url: '/reset',
+      templateUrl: '/partials/login-reset.tpl.html',
+      controller: 'authController as auth'
     });
-
   }])
   .controller("authController", ["loginService", "$state", function(loginService, $state) {
       console.log("START: authController");
@@ -43,11 +50,12 @@ angular.module('petroji.auth', [
           "lastname": this.newUserData.lastname,
           "username": this.newUserData.username
         };
+
         //console.log(userData);
         var cb = function(error) {
           if (error === null) {
             console.log("User created successfully");
-            $state.go('/');
+            $state.go('auth');
           } else {
             console.log("Error creating user:", error);
           }

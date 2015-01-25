@@ -6,6 +6,7 @@ angular.module('petroji')
       console.log("createUser");
       var ref = new Firebase("https://petroji.firebaseio.com");
       ref.createUser(userData, callback);
+      ref.child("users").child(userData.uid).set(userData);
     };
 
     loginService.authUser = function(authData, callback) {
