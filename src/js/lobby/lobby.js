@@ -24,27 +24,11 @@ angular.module('petroji')
     //get people in and out of the lobby list
 
     this.lobbyData = lobbyService.lobby();
-    console.log("lobbyData:", lobbyData);
-
-
-
+    console.log("lobbyData:", this.lobbyData);
 
     this.joinGame = function() {
       console.log("joinGame");
-      var gameData = {
-        "village": this.village,
-        "players": this.players
-      };
-      console.log("gameData:", gameData);
-      var cb = function(error, gameData) {
-        if (error) {
-          console.log("Join Game Failed!", error);
-        } else {
-          console.log("Joined successfully with payload:", villageData);
-          $state.go('village');
-        }
-      };
-      lobbyService.joinGame(villageData, cb);
+      $state.go("village.plan",{id:"-JgU60-ulT6nwSIldCwE"  });
       console.log("END: joinGame ");
     };
 
