@@ -17,7 +17,7 @@ angular.module('petroji.auth', [
       controller: 'authController as auth'
     });
   }])
-  .controller("authController", ["loginService", "$state", function(loginService, $state) {
+  .controller("authController", ["loginService", "userService", "lobbyService", "$state", function(loginService, userService, lobbyService,$state) {
       console.log("START: authController");
       this.newUserData = {};
       this.authData = {};
@@ -34,7 +34,18 @@ angular.module('petroji.auth', [
             console.log("Login Failed!", error);
           } else {
             console.log("Authenticated successfully with payload:", authData);
-            $state.go('lobby');
+            //Add person to lobby if not already in a game
+            //Disconnected and relogged in end.
+            //If their ID was in a game/village then send them to gAME
+            var uData = userService.getUser(authData.uid);
+            if (!uData.village) {
+              lobbyService.joinLobby(authData.uid);
+              $state.go('lobby');
+            }
+            else
+            {
+              $state.go('joingame');
+            }
           }
         };
         loginService.authUser(authData, cb);

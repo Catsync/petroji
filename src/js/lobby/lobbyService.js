@@ -11,16 +11,14 @@ angular.module('petroji')
      */
     lobbyService.lobby = function(authData) {
       console.log("lobby:Start:", authData);
-      var ref = new Firebase("https://petroji.firebaseio.com");
-      ref.lobby(authData,
-        function(error) {
-          if (error === null) {
-            console.log("Success getting in waiting for users.");
-          } else {
-            console.log("Error waiting for others:", error);
-          }
-        });
+      var ref = new Firebase("https://petroji.firebaseio.com/lobby");
+      return $firebase(ref).$asObject();
+    };
 
+    lobbyService.joinLobby = function(uid) {
+      console.log("joinLobby:Start:", uid);
+      var ref = new Firebase("https://petroji.firebaseio.com/lobby");
+      $firebase(ref.child(uid)).$set(true);
     };
 
     /*

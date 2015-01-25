@@ -23,6 +23,11 @@ angular.module('petroji')
     this.lobbyData = {};
     //get people in and out of the lobby list
 
+    this.lobbyData = lobbyService.lobby();
+    console.log("lobbyData:", lobbyData);
+
+
+
 
     this.joinGame = function() {
       console.log("joinGame");
@@ -42,6 +47,7 @@ angular.module('petroji')
       lobbyService.joinGame(villageData, cb);
       console.log("END: joinGame ");
     };
+
     this.conclusion = function() {
       console.log("conclusion");
       var gameData = {};
@@ -58,6 +64,7 @@ angular.module('petroji')
       lobbyService.conclusion(gameData, cb);
       console.log("END: conclusion.");
     };
+
     this.lobby = function() {
       console.log("Start: lobby");
       var gameData = {};
