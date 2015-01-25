@@ -42,14 +42,5 @@ angular.module('petroji.auth',[
   console.log("END: authController");
 
   //this.user={"name": "foo"};
-  /*
-  {
-  email    : "rick.rickanderson@gmail.com",
-  password : "PASSWORD",
-  firstname : "FIRSTNAME",
-  lastname : "LASTNAME",
-  username : "USERNAME"
-}
-
-  */
+  
 }]);
