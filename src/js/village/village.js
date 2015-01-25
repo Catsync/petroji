@@ -8,7 +8,7 @@ angular.module('petroji')
 			templateUrl: '/partials/village-main.tpl.html',
 			resolve: {
 				village: ['$stateParams','villageService', function($stateParams,villageService) {
-					return villageService.getVillage($stateParams.id);
+					return villageService.getVillage($stateParams.id).$loaded();
 				}]
 			}
 		})
