@@ -1,10 +1,5 @@
 angular.module('petroji')
 .factory('villageService', ['$firebase', 'Village', function($firebase,Village) {
-	// var ref = new Firebase("https://petroji.firebaseio.com/");
-	// var sync = $firebase(ref);
-
-	// var villageDefault = $firebase(ref.child('village-default')).$asObject();
-	var activeVillagesSync = $firebase(ref.child('active-villages'));
 	var villageSync = null;
 	var village = null;
 
