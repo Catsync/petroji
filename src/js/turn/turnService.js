@@ -46,10 +46,12 @@ angular.module('petroji')
 		return currentTurn;
 	};
 
-	turnService.newTurn = function() {
+	turnService.newTurn = function(data) {
 		var sync = $firebase(baseTurnRef);
 
-		return sync.$push(turnTemplate).then(function(newRef) {
+		data = data || turnTemplate;
+
+		return sync.$push(data).then(function(newRef) {
 			currentTurn = $firebase(newRef).$asObject();
 			return currentTurn;
 		});
