@@ -36,9 +36,13 @@ angular.module('petroji')
 				data.actions[key] = { 0: "", 1: "" };
 				data.results[key] = {};
 			});
-			console.log('new turn data');
-			console.log(data);
-			currentTurn = turnService.newTurn(data);
+			currentTurn = turnService.newTurn(data).then(function(ref) {
+				console.log('new turn loaded');
+				console.log(ref);
+				village.currentTurn = ref.$id;
+				village.$save();
+			});
+			return currentTurn;
 		}
 	};
 
@@ -50,6 +54,8 @@ angular.module('petroji')
 		var sync = $firebase(baseTurnRef);
 
 		data = data || turnTemplate;
+		console.log('new turn data');
+		console.log(data);
 
 		return sync.$push(data).then(function(newRef) {
 			currentTurn = $firebase(newRef).$asObject();
