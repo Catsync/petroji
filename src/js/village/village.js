@@ -3,9 +3,14 @@ angular.module('petroji')
 	"use strict";
 	$stateProvider
 		.state('village', {
-			url: '/village',
+			url: '/village/:id',
 			abstract: true,
 			templateUrl: '/partials/village-main.tpl.html',
+			resolve: {
+				village: ['$stateParams','villageService', function($stateParams,villageService) {
+					return villageService.getVillage($stateParams.id);
+				}]
+			}
 		})
 		.state('village.plan', {
 			url: '/plan',
